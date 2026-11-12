@@ -10,12 +10,13 @@ body {
     line-height: 1.5;
 }
 
-/* --- 1. Navigation med Flexbox --- */
+/* --- 1. Navigation med Flexbox (Mobile First) --- */
 .site-header {
     display: flex;
-    justify-content: space-between; /* Logo til venstre, menupunkter til højre */
+    flex-direction: column; /* På mobil: logo øverst og menu nedenunder */
     align-items: center;            /* Centrerer elementerne lodret */
-    padding: 1rem 2rem;
+    gap: 1rem;
+    padding: 1rem;
     background-color: #333;
     color: #fff;
 }
@@ -27,8 +28,21 @@ body {
 
 .main-nav ul {
     display: flex;
+    flex-wrap: wrap; /* Tillader menupunkter at hoppe ned på næste linje på helt små skærme */
+    justify-content: center;
     list-style: none;
-    gap: 1.5rem; /* Luft/gap imellem menupunkterne */
+    gap: 1rem; /* Lidt mindre afstand på mobil */
+}
+/* På større skærm (tablet og computer) */
+@media (min-width: 600px) {
+    .site-header {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1rem 2 rem;
+    }
+    .main-nav ul {
+        gap: 1.5rem;
+    }
 }
 
 /* Sektion med seks kort  (Grid) ---*/
