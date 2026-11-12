@@ -1,0 +1,53 @@
+/* --- Generelle indstillinger / Nulstilling ---*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    line-height: 1.5;
+}
+
+/* --- 1. Navigation med Flexbox --- */
+.site-header {
+    display: flex;
+    justify-content: space-between; /* Logo til venstre, menupunkter til højre */
+    align-items: center;            /* Centrerer elementerne lodret */
+    padding: 1rem 2rem;
+    background-color: #333;
+    color: #fff;
+}
+
+.site-header a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem; /* Luft/gap imellem menupunkterne */
+}
+
+/* Sektion med seks kort  (Grid) ---*/
+.card-section {
+    display: grid;
+    /*
+    auto-fit fylder rækken ud med så mange kolonner, som der er plads til.
+    minmax(250px, 1fr) sikrer, at hvert kort er mindst 250px bredt på mobil,
+    men udvider sig (1fr) for at fylde skærmen ud på computer.
+     */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+    background-color: #f4f4f4;
+}
+
+.card {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
